@@ -59,14 +59,19 @@ $faqs = [
             'Puoi leggere ulteriori informazioni sulla sicurezza online, incluso come proteggere te e la tua famiglia online, nel Centro Google per la sicurezza online.',
             'Scopri quali misure adottiamo per garantire protezione e sicurezza alle tue informazioni personali, lasciando a te il controllo.',
         ]
-    ]
+    ],
+    [
+        'question' => 'Perché il mio account è associato a un paese?',
+        'answer' => [
+            'Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:',
+            '<ol><li>La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:',
+            '<ol type="a"><li>Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell\'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.</li>',
+            '<li>Google LLC, con sede negli Stati Uniti, per il resto del mondo.</li></ol></li>',
+            '<li>La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.</li></ol>',
+            'Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.',
+        ]
+    ],
 ];
-
-$answers = [];
-
-for ($i = 0; $i < count($faqs); $i++) {
-    $answers[] = $faqs[$i]['answer'];
-};
 
 ?>
 
@@ -103,24 +108,23 @@ for ($i = 0; $i < count($faqs); $i++) {
 
                 } elseif ($periodType == 'answer') {
 
-                    for ($j = 0; $j < count($answers); $j++) {
+                    for ($j = 0; $j < count($value); $j++) {
 
-                        for ($k = 0; $k < count($answers[$j]); $k++) {
+
 
                     ?>
 
-                            <p>
-                                <?php echo $answers[$j][$k] ?>
-                            </p>
+                        <p>
+                            <?php echo $value[$j] ?>
+                        </p>
 
         <?php
 
-                        }
+
                     }
                 }
             };
         }
         ?>
-
     </div>
 </main>
