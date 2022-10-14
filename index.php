@@ -7,7 +7,7 @@
     }
 
     #fixed-header {
-        height: 100px;
+        height: 95px;
         width: 100%;
         position: fixed;
         z-index: 10;
@@ -27,14 +27,38 @@
         padding-top: 100px;
     }
 
-    h2 {
-        font-weight: 100;
+    .container div {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #3c4043;
+        margin-top: 70px;
+        margin-bottom: 25px;
+    }
+
+    .container p,
+    .container ol {
+        margin-bottom: 35px;
+        font-size: 0.9rem;
+        line-height: 23px;
+    }
+
+    .container li {
+        margin-top: 12px;
+    }
+
+    .container li p {
+        display: none;
+
+    }
+
+    .container span {
+        font-size: 1.1rem;
     }
 
     .container {
-        max-width: 1000px;
+        max-width: 950px;
         margin: 0 auto;
-        padding-top: 100px;
+        padding-top: 25px;
     }
 </style>
 
@@ -71,6 +95,14 @@ $faqs = [
             'Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.',
         ]
     ],
+    [
+        'question' => '<span>Stabilire il paese associato al tuo account</span>',
+        'answer' => [
+            'Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell\'ultimo anno.',
+            'I viaggi frequenti solitamente non influiscono sul paese associato al tuo account. Se ti trasferisci in un altro paese, potrebbe occorrere circa un anno per aggiornare l\'associazione del paese.',
+            'Se il paese associato al tuo account non corrisponde al tuo paese di residenza, il motivo potrebbe essere la differenza tra il paese in cui lavori e il paese in cui risiedi, l\'installazione di una rete privata virtuale (VPN) per mascherare il tuo indirizzo IP oppure la residenza vicino a un confine territoriale. Contattaci se ritieni che il paese associato al tuo account sia sbagliato.',
+        ]
+    ],
 ];
 
 ?>
@@ -100,17 +132,15 @@ $faqs = [
 
         ?>
 
-                    <h2>
+                    <div>
                         <?php echo $value ?>
-                    </h2>
+                    </div>
 
                     <?php
 
                 } elseif ($periodType == 'answer') {
 
                     for ($j = 0; $j < count($value); $j++) {
-
-
 
                     ?>
 
@@ -119,8 +149,6 @@ $faqs = [
                         </p>
 
         <?php
-
-
                     }
                 }
             };
