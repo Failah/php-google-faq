@@ -1,5 +1,6 @@
 <style>
     body {
+        font-family: sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -8,8 +9,9 @@
     #fixed-header {
         height: 100px;
         width: 100%;
-        margin-bottom: 100px;
         position: fixed;
+        z-index: 10;
+        background-color: white;
         border-bottom: 1px solid grey;
         display: flex;
         flex-direction: column;
@@ -19,6 +21,20 @@
     #fixed-header>div:first-child {
         display: flex;
         justify-content: space-between;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    h2 {
+        font-weight: 100;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-top: 100px;
     }
 </style>
 
@@ -46,6 +62,12 @@ $faqs = [
     ]
 ];
 
+$answers = [];
+
+for ($i = 0; $i < count($faqs); $i++) {
+    $answers[] = $faqs[$i]['answer'];
+};
+
 ?>
 
 <div id="fixed-header">
@@ -61,3 +83,44 @@ $faqs = [
         NAVBAR
     </div>
 </div>
+
+<main>
+    <div class="container">
+
+        <?php
+        foreach ($faqs as $faq) {
+
+            foreach ($faq as $periodType => $value) {
+                if ($periodType == 'question') {
+
+        ?>
+
+                    <h2>
+                        <?php echo $value ?>
+                    </h2>
+
+                    <?php
+
+                } elseif ($periodType == 'answer') {
+
+                    for ($j = 0; $j < count($answers); $j++) {
+
+                        for ($k = 0; $k < count($answers[$j]); $k++) {
+
+                    ?>
+
+                            <p>
+                                <?php echo $answers[$j][$k] ?>
+                            </p>
+
+        <?php
+
+                        }
+                    }
+                }
+            };
+        }
+        ?>
+
+    </div>
+</main>
